@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Appraiser>
+
+<h1>Appraiser List</h1>
+
+<table id="appraiserTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date From</th>
+            <th>Date To</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appraiser in Model)
+        {
+            <tr>
+                <td>@appraiser.DateFrom</td>
+                <td>@appraiser.DateTo</td>
+                <td>@appraiser.Name</td>
+                <td>@appraiser.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#appraiserTable').DataTable();
+        });
+    </script>
+}
